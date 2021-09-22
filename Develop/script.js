@@ -3,12 +3,11 @@ var rootEl = $('#root');
 var Container = $('.container');
 var Group = $('.input-group');
 var timeDisplayEl = $('#time-display');
-var timetable = $("<li>");
 var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
 var DivTime = $('.form-control');
-var tume = $('.input-group-text hour')
+var time = $('.input-group-text hour')
 var hour = moment().format('HH')
-var a = $('#23');
+
 
 function displayTime() {
     var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
@@ -17,17 +16,20 @@ function displayTime() {
   displayTime();
   console.log(rightNow);
 
-  if (hour > tume) {
+  if (rightNow > time) {
     Group.addClass('past');
   }
-  else if (hour === a) {
+  else if (rightNow === time) {
     Group.addClass('present');
   }
 else {
   Group.addClass('future');
 }
-console.log(hour);
-console.log(a)
+console.log(rightNow);
+
+
+
+
 
 
 //add a timer at the top that shows current time
