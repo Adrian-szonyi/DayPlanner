@@ -12,9 +12,9 @@ Using the Moment API I have created a simple DayPlanner tool that allows users t
 ## Installation
 
 Here is the link to view the DayPlanner website page:
-[Link to DayPlanner Site](https://adrian-szonyi.github.io/PasswordGenerator/develop/index.html)
+[Link to DayPlanner Site](https://adrian-szonyi.github.io/DayPlanner/Develop/index.html)
 
 
 ## Website Image
 
-![Image of the DayPlanner Website](assets\Images\Capture.PNG)
+![Image of the DayPlanner Website](https://github.com/Adrian-szonyi/DayPlanner/blob/main/Assets/DayPlanner.png)
