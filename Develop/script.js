@@ -28,7 +28,7 @@ var rightNow = moment().format("MMM DD, YYYY [at] hh:mm:ss a");
 var DivTime = $(".form-control");
 var input9 = $("#input-group1")[0];
 var input10 = $("#input-group2")[0];
-var input11 = $("#input-group3")[0];
+var input11 = $("#input-group3");
 var input12 = $("#input-group4")[0];
 var input13 = $("#input-group5")[0];
 var input14 = $("#input-group6")[0];
@@ -72,15 +72,15 @@ displayTime();
 console.log(rightNow);
 
 var todos = {
-  0: '',
+  9: '',
+  10: '',
+  11: '',
+  12: '',
   1: '',
   2: '',
   3: '',
   4: '',
   5: '',
-  6: '',
-  7: '',
-  8: '',
 };
 
 // The following function renders items in a todo list as <li> elements
@@ -89,11 +89,12 @@ function renderTodos() {
   // // input11.innerHTML = "";
   // input11.textContent = todos;
   for (var i = 0; i < Buttonlist.length; i++) {
-    inputlist[i].value = todos[i]
+    inputlist[i] = todos[i]
 
 }
 }
 // This function is being called below and will run when the page loads.
+console.log(input11.value);
 function init() {
   // Get stored todos from localStorage
   var storedTodos = JSON.parse(localStorage.getItem("todos"));
@@ -117,7 +118,7 @@ for (var i = 0; i < Buttonlist.length; i++) {
 Buttonlist[i].on("click", function (event) {
   event.preventDefault();
 
-  var todoText = inputlist[i].value.trim();
+  var todoText = inputlist[i];
  
 
   // Add new todoText to todos array, clear the input
@@ -134,6 +135,7 @@ Buttonlist[i].on("click", function (event) {
 
 // Calls init to retrieve data and render it to the page on load
 init();
+// storeTodos(i, todoText);
 
 for (var i = 0; i < hourlist.length; i++) {
   if (hourlist[i].attr("data-hour") < hourtime) {
