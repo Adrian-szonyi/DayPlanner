@@ -28,7 +28,7 @@ var rightNow = moment().format("MMM DD, YYYY [at] hh:mm:ss a");
 var DivTime = $(".form-control");
 var input9 = $("#input-group1")[0];
 var input10 = $("#input-group2")[0];
-var input11 = $("#input-group3");
+var input11 = $("#input-group3")[0];
 var input12 = $("#input-group4")[0];
 var input13 = $("#input-group5")[0];
 var input14 = $("#input-group6")[0];
@@ -108,28 +108,85 @@ function init() {
   renderTodos();
 }
 
-function storeTodos(hour, hourtext) {
-  // Stringify and set key in localStorage to todos array
-  // input11.value = localStorage.setItem("todos", JSON.stringify(todos));
-  todos[hour] = hourtext;
-  localStorage.setItem("todos", JSON.stringify(todos));
-}
-for (var i = 0; i < Buttonlist.length; i++) {
-Buttonlist[i].on("click", function (event) {
-  event.preventDefault();
+$(".saveBtn").on("click", function() {
+var inputvalue = $(this).parent().siblings(".form-control").val()
 
-  var todoText = inputlist[i];
+var Buttonselect = $(this).attr("id")
+localStorage.setItem(Buttonselect,inputvalue);
+})
+var data9am = localStorage.getItem("Button09");
+var data9am = localStorage.getItem("Button09");
+var data10am = localStorage.getItem("Button10");
+var data11am = localStorage.getItem("Button11");
+var data12pm = localStorage.getItem("Button12");
+var data1pm = localStorage.getItem("Button13");
+var data2pm = localStorage.getItem("Button14");
+var data3pm = localStorage.getItem("Button15");
+var data4pm = localStorage.getItem("Button16");
+var data5pm = localStorage.getItem("Button17");
+var inputvalue = $(this).parent().siblings(".form-control").val()
+function Renderitems() {
+if (data9am !== null) {
+  inputvalue = data9am;
+}
+if (data10am !== null) {
+  $("#input-group2").textContent = data10am;
+}
+if (data11am !== null) {
+  $("#input-group3").textContent = data11am;
+}
+if (data12pm !== null) {
+  $("#input-group4").textContent = data12pm;
+}
+if (data1pm !== null) {
+  $("#input-group5").textContent = data1pm;
+}
+if (data2pm !== null) {
+  $("#input-group6").textContent = data2pm;
+}
+if (data3pm !== null) {
+  $("#input-group7").textContent = data3pm;
+}
+if (data4pm !== null) {
+  $("#input-group8").textContent = data4pm;
+}
+if (data5pm !== null) {
+  $("#input-group9").textContent = data5pm;
+}
+// data10am.textContent = input10;
+// data11am.textContent = input11;
+// data12pm.textContent = input12;
+// data1pm.textContent = input13;
+// data2pm.textContent = input14;
+// data3pm.textContent = input15;
+// data4pm.textContent = input16;
+// data5pm.textContent = input17;
+}
+Renderitems();
+
+
+// function storeTodos(hour, hourtext) {
+//   // Stringify and set key in localStorage to todos array
+//   // input11.value = localStorage.setItem("todos", JSON.stringify(todos));
+//   todos[hour] = hourtext;
+//   localStorage.setItem("todos", JSON.stringify(todos));
+// }
+// for (var i = 0; i < Buttonlist.length; i++) {
+// Buttonlist[i].on("click", function (event) {
+//   event.preventDefault();
+
+//   var todoText = inputlist[i];
  
 
-  // Add new todoText to todos array, clear the input
-  // input11.value = "";
+//   // Add new todoText to todos array, clear the input
+//   // input11.value = "";
 
-  // Store updated todos in localStorage, re-render the list
-  storeTodos(i, todoText);
-  // renderTodos();
+//   // Store updated todos in localStorage, re-render the list
+//   storeTodos(i, todoText);
+//   // renderTodos();
 
-});
-}
+// });
+// }
 
 // Add click event to todoList element
 
