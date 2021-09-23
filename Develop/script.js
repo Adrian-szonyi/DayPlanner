@@ -1,7 +1,7 @@
 // handle displaying the time
 var rootEl = $("#root");
 var Container = $(".container");
-var Group1 = $("#input-group1");
+var Group1 = $("#input-group");
 var Group2 = $("#input-group2");
 var Group3 = $("#input-group3");
 var Group4 = $("#input-group4");
@@ -26,7 +26,7 @@ var timeblock = $(".timeblock")
 var timeDisplayEl = $("#time-display");
 var rightNow = moment().format("MMM DD, YYYY [at] hh:mm:ss a");
 var DivTime = $(".form-control");
-var input9 = $("#input-group1")[0];
+var input9 = $("#input-group")[0];
 var input10 = $("#input-group2")[0];
 var input11 = $("#input-group3")[0];
 var input12 = $("#input-group4")[0];
@@ -59,54 +59,12 @@ var hour8 = $("#hour8");
 var hour9 = $("#hour9");
 var hourlist = [hour1, hour2, hour3, hour4, hour5, hour6, hour7, hour8, hour9];
 var todoList = $("#todo-list");
-// var storedTodos = JSON.parse(localStorage.getItem("todos"));
-
-
-
 
 function displayTime() {
   var rightNow = moment().format("MMM DD, YYYY [at] hh:mm:ss a");
   timeDisplayEl.text(rightNow);
 }
 displayTime();
-console.log(rightNow);
-
-var todos = {
-  9: '',
-  10: '',
-  11: '',
-  12: '',
-  1: '',
-  2: '',
-  3: '',
-  4: '',
-  5: '',
-};
-
-// The following function renders items in a todo list as <li> elements
-function renderTodos() {
-  // Clear todoList element
-  // // input11.innerHTML = "";
-  // input11.textContent = todos;
-  for (var i = 0; i < Buttonlist.length; i++) {
-    inputlist[i] = todos[i]
-
-}
-}
-// This function is being called below and will run when the page loads.
-console.log(input11.value);
-function init() {
-  // Get stored todos from localStorage
-  var storedTodos = JSON.parse(localStorage.getItem("todos"));
-
-  // If todos were retrieved from localStorage, update the todos array to it
-  if (storedTodos !== null) {
-    todos = storedTodos;
-  }
-
-  // This is a helper function that will render todos to the DOM
-  renderTodos();
-}
 
 $(".saveBtn").on("click", function() {
 var inputvalue = $(this).parent().siblings(".form-control").val()
@@ -127,72 +85,36 @@ var data5pm = localStorage.getItem("Button17");
 var inputvalue = $(this).parent().siblings(".form-control").val()
 function Renderitems() {
 if (data9am !== null) {
-  inputvalue = data9am;
+  $("#input-group").val(data9am)
 }
 if (data10am !== null) {
-  $("#input-group2").textContent = data10am;
+  $("#input-group2").val(data10am);
 }
 if (data11am !== null) {
-  $("#input-group3").textContent = data11am;
+  $("#input-group3").val(data11am)
 }
 if (data12pm !== null) {
-  $("#input-group4").textContent = data12pm;
+  $("#input-group4").val(data12pm)
 }
 if (data1pm !== null) {
-  $("#input-group5").textContent = data1pm;
+  $("#input-group5").val(data1pm)
 }
 if (data2pm !== null) {
-  $("#input-group6").textContent = data2pm;
+  $("#input-group6").val(data2pm)
 }
 if (data3pm !== null) {
-  $("#input-group7").textContent = data3pm;
+  $("#input-group7").val(data3pm)
 }
 if (data4pm !== null) {
-  $("#input-group8").textContent = data4pm;
+  $("#input-group8").val(data4pm)
 }
 if (data5pm !== null) {
-  $("#input-group9").textContent = data5pm;
+  $("#input-group9").val(data5pm)
 }
-// data10am.textContent = input10;
-// data11am.textContent = input11;
-// data12pm.textContent = input12;
-// data1pm.textContent = input13;
-// data2pm.textContent = input14;
-// data3pm.textContent = input15;
-// data4pm.textContent = input16;
-// data5pm.textContent = input17;
 }
 Renderitems();
 
 
-// function storeTodos(hour, hourtext) {
-//   // Stringify and set key in localStorage to todos array
-//   // input11.value = localStorage.setItem("todos", JSON.stringify(todos));
-//   todos[hour] = hourtext;
-//   localStorage.setItem("todos", JSON.stringify(todos));
-// }
-// for (var i = 0; i < Buttonlist.length; i++) {
-// Buttonlist[i].on("click", function (event) {
-//   event.preventDefault();
-
-//   var todoText = inputlist[i];
- 
-
-//   // Add new todoText to todos array, clear the input
-//   // input11.value = "";
-
-//   // Store updated todos in localStorage, re-render the list
-//   storeTodos(i, todoText);
-//   // renderTodos();
-
-// });
-// }
-
-// Add click event to todoList element
-
-// Calls init to retrieve data and render it to the page on load
-init();
-// storeTodos(i, todoText);
 
 for (var i = 0; i < hourlist.length; i++) {
   if (hourlist[i].attr("data-hour") < hourtime) {
