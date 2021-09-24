@@ -1,40 +1,20 @@
 // handle displaying the time
 var rootEl = $("#root");
 var Container = $(".container");
-var Group1 = $("#input-group");
-var Group2 = $("#input-group2");
-var Group3 = $("#input-group3");
-var Group4 = $("#input-group4");
-var Group5 = $("#input-group5");
-var Group6 = $("#input-group6");
-var Group7 = $("#input-group7");
-var Group8 = $("#input-group8");
-var Group9 = $("#input-group9");
-var grouplist = [
-  Group1,
-  Group2,
-  Group3,
-  Group4,
-  Group5,
-  Group6,
-  Group7,
-  Group8,
-  Group9,
-];
 
 var timeblock = $(".timeblock")
 var timeDisplayEl = $("#time-display");
 var rightNow = moment().format("MMM DD, YYYY [at] hh:mm:ss a");
 var DivTime = $(".form-control");
-var input9 = $("#input-group")[0];
-var input10 = $("#input-group2")[0];
-var input11 = $("#input-group3")[0];
-var input12 = $("#input-group4")[0];
-var input13 = $("#input-group5")[0];
-var input14 = $("#input-group6")[0];
-var input15 = $("#input-group7")[0];
-var input16 = $("#input-group8")[0];
-var input17 = $("#input-group9")[0];
+var input9 = $("#input-group")
+var input10 = $("#input-group2")
+var input11 = $("#input-group3")
+var input12 = $("#input-group4")
+var input13 = $("#input-group5")
+var input14 = $("#input-group6")
+var input15 = $("#input-group7")
+var input16 = $("#input-group8")
+var input17 = $("#input-group9")
 var inputlist = [input9, input10, input11, input12, input13, input14, input15, input16, input17]
 var Button9 = $("#Button09");
 var Button10 = $("#Button10");
@@ -47,7 +27,7 @@ var Button16 = $("#Button16");
 var Button17 = $("#Button17");
 var Buttonlist = [Button9, Button10, Button11, Button12, Button13, Button14, Button15, Button16, Button17]
 
-var hourtime = moment().format("HH");
+var hourtime = moment().format("HH")
 var hour1 = $("#hour1");
 var hour2 = $("#hour2");
 var hour3 = $("#hour3");
@@ -116,12 +96,21 @@ Renderitems();
 
 
 
-for (var i = 0; i < hourlist.length; i++) {
+  if (9 === hourtime){
+    $("#input-group").css('background-color', 'rgb(255, 105, 97)');
+  }
+  else if (9 < hourtime){
+    $("#input-group").css('background-color', 'rgb(211, 211, 211)');
+  }
+  else {
+    $("#input-group").css('background-color', 'rgb(119, 221, 119)');
+  }
+  for (var i = 1; i < hourlist.length; i++) {
   if (hourlist[i].attr("data-hour") < hourtime) {
-    grouplist[i].addClass("past");
+    inputlist[i].addClass("past");
   } else if (hourtime === hourlist[i].attr("data-hour")) {
-    grouplist[i].addClass("present");
+    inputlist[i].addClass("present");
   } else {
-    grouplist[i].addClass("future");
+    inputlist[i].addClass("future");
   }
 }
